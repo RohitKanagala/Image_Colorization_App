@@ -1,9 +1,11 @@
-# Image Colorization Using Deep Learning
+# Image Colorization Using Deep Learning 
 
 Working App Link: https://imagecolorizationapp.streamlit.app/
 
 ## Project Description
-This project implements an **AI-based Image Colorization system** that automatically converts grayscale (black-and-white) images into colored images using a pretrained deep learning model.
+This project implements an **Convolutional Neural Networks(CNN) based Image Colorization system** that automatically converts grayscale (black-and-white) images into colored images using a pretrained deep learning model.
+
+A **CNN (Convolutional Neural Network)** is a type of **deep learning neural network** mainly used to process images, videos, and other grid-like data. It is widely used in computer vision tasks such as image classification, object detection, and facial recognition.
 
 The application provides a simple web interface built with **Streamlit** where users can upload grayscale images and generate colorized outputs instantly.
 
