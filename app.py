@@ -1,22 +1,29 @@
 import streamlit as st
-import subprocess
+import cv2
+import numpy as np
 from PIL import Image
+from colorize import colorize
 
 st.title("AI Image Colorization")
 
-uploaded = st.file_uploader("Upload Image", type=["jpg","png","jpeg"])
+uploaded = st.file_uploader("Upload Black & White Image", type=["jpg","png","jpeg"])
 
 if uploaded is not None:
 
-    image = Image.open(uploaded)
-    st.image(image, caption="Original Image")
+    image = Image.open(uploaded).convert("RGB")
 
-    with open("input.jpg", "wb") as f:
-        f.write(uploaded.getbuffer())
+    st.subheader("Original Image")
+    st.image(image)
 
-    if st.button("Colorize"):
+    image = np.array(image)
 
-        subprocess.run(["python", "colorize.py"])
+    if st.button("Colorize Image"):
 
-        result = Image.open("output.jpg")
-        st.image(result, caption="Colorized Image")
+        image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+
+        result = colorize(image)
+
+        result = cv2.cvtColor((result*255).astype("uint8"), cv2.COLOR_BGR2RGB)
+
+        st.subheader("Colorized Image")
+        st.image(result)
