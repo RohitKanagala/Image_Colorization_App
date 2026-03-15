@@ -1,81 +1,70 @@
-# Image_Colorization_App
-Find the working of app: https://imagecolorizationapp.streamlit.app/
+# Image Colorization Using Deep Learning
 
-# Project Description
+## Project Description
+This project implements an **AI-based Image Colorization system** that automatically converts grayscale (black-and-white) images into colored images using a pretrained deep learning model.
 
-This project implements an AI-based Image Colorization system that automatically converts grayscale (black-and-white) images into colored images. The application uses a pretrained Convolutional Neural Network (CNN) model to predict color information from grayscale images.
+The application provides a simple web interface built with **Streamlit** where users can upload grayscale images and generate colorized outputs instantly.
 
-A simple web interface built with Streamlit allows users to upload grayscale images and generate colorized outputs instantly.
+The goal of this project is to demonstrate how **deep learning techniques can restore color information in grayscale images and historical photographs**.
 
-The goal of this project is to demonstrate how deep learning techniques can be used to restore color information in historical photographs or grayscale images.
+---
 
-# Technologies Used
-Programming Language
+## Technologies Used
 
-Python
+### Programming Language
+- Python
 
-# Libraries and Frameworks
+### Libraries and Frameworks
+- OpenCV – Image processing and deep learning inference
+- NumPy – Numerical computations and matrix operations
+- Streamlit – Web application framework
+- Pillow – Image loading and manipulation
 
-OpenCV – Used for image processing and deep learning model inference
+---
 
-NumPy – Used for array and matrix operations
+## Model Used
 
-Streamlit – Used to create the web interface
+This project uses the **Image Colorization model by Richard Zhang et al.**
 
-Pillow – Used for image handling and conversion
+The model predicts the missing **a and b color channels** in the LAB color space using the **L (lightness) channel** from grayscale images.
 
-# Model Used
+Model files used:
 
-The project uses the pretrained Image Colorization model developed by Richard Zhang et al.
-
-The model is trained to predict the ab color channels in the LAB color space from the L (lightness) channel of grayscale images.
-
-# Model files used in this project:
-
+```
 colorization_deploy_v2.prototxt
 colorization_release_v2.caffemodel
 pts_in_hull.npy
+```
 
-These files contain the network architecture and pretrained weights.
+---
 
-# How the System Works
+## How the System Works
 
 The image colorization process follows these steps:
 
-1. Image Upload
+1. **Image Upload**
+   - User uploads a grayscale image through the Streamlit interface.
 
-The user uploads a grayscale image through the Streamlit web interface.
+2. **Image Conversion**
+   - Image is converted from RGB to **LAB color space**.
 
-2. Image Conversion
+3. **Feature Extraction**
+   - The **L channel** (grayscale information) is extracted.
 
-The image is converted from RGB to LAB color space.
+4. **Color Prediction**
+   - The deep neural network predicts the **a and b color channels**.
 
-LAB color space separates:
+5. **Image Reconstruction**
+   - Predicted color channels are combined with the original L channel.
 
-L channel → Lightness
+6. **Final Output**
+   - LAB image is converted back to RGB to produce the colorized result.
 
-a channel → Green-Red color
+---
 
-b channel → Blue-Yellow color
+## Project Structure
 
-3. Feature Extraction
-
-The L channel (grayscale information) is passed to the deep neural network.
-
-4. Color Prediction
-
-The CNN model predicts the missing a and b color channels.
-
-5. Image Reconstruction
-
-The predicted a and b channels are combined with the original L channel.
-
-6. Final Output
-
-The LAB image is converted back to RGB format to produce the final colorized image.
-
-
-# Project Structure
+```
 Image_Colorization_App
 │
 ├── app.py
@@ -90,30 +79,77 @@ Image_Colorization_App
 ├── .gitignore
 ├── .gitattributes
 └── README.md
+```
 
-# Applications
+### File Description
+
+| File | Description |
+|-----|-------------|
+| app.py | Streamlit web interface |
+| colorize.py | Deep learning colorization logic |
+| requirements.txt | Python dependencies |
+| model/ | Pretrained model files |
+
+---
+
+## Installation
+
+Clone the repository:
+
+```
+git clone https://github.com/RohitKanagala/Image_Colorization_App.git
+cd Image_Colorization_App
+```
+
+Install dependencies:
+
+```
+pip install -r requirements.txt
+```
+
+---
+
+## Run the Application
+
+```
+streamlit run app.py
+```
+
+Then open the provided local URL in your browser.
+
+---
+
+## Applications
 
 This technology can be used for:
 
-Restoring historical black-and-white photographs
+- Restoring historical black-and-white photographs
+- Film restoration
+- Image enhancement in computer vision
+- AI-based image editing tools
 
-Film restoration
+---
 
-Image enhancement in computer vision
+## References
 
-AI-based image editing tools
+1. Zhang, R., Isola, P., & Efros, A. A. (2016).  
+   **Colorful Image Colorization**  
+   ECCV 2016.
 
-# References
+2. Project Page  
+   http://richzhang.github.io/colorization/
 
-Richard Zhang, Phillip Isola, Alexei A. Efros
-“Colorful Image Colorization”
-ECCV 2016
+3. OpenCV Documentation  
+   https://docs.opencv.org/
 
-Zhang et al. Project Page
-http://richzhang.github.io/colorization/
+4. Streamlit Documentation  
+   https://docs.streamlit.io/
 
-OpenCV Deep Learning Module Documentation
-https://docs.opencv.org/
+---
 
-Streamlit Documentation
-https://docs.streamlit.io/
+## Author
+
+**Rohit Kanagala**
+
+GitHub:  
+https://github.com/RohitKanagala
