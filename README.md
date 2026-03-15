@@ -145,11 +145,5 @@ This technology can be used for:
 4. Streamlit Documentation  
    https://docs.streamlit.io/
 
----
 
-## Author
 
-**Rohit Kanagala**
-
-GitHub:  
-https://github.com/RohitKanagala
