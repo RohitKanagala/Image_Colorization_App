@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 from colorize import colorize
 
-st.title("AI Image Colorization")
+st.title("Black & White Image Colorization")
 
 uploaded = st.file_uploader("Upload Black & White Image", type=["jpg","png","jpeg"])
 
