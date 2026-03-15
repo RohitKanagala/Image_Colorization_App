@@ -1,7 +1,7 @@
 # Image_Colorization_App
 Find the working of app: https://imagecolorizationapp.streamlit.app/
 
-#Project Description
+# Project Description
 
 This project implements an AI-based Image Colorization system that automatically converts grayscale (black-and-white) images into colored images. The application uses a pretrained Convolutional Neural Network (CNN) model to predict color information from grayscale images.
 
@@ -9,12 +9,12 @@ A simple web interface built with Streamlit allows users to upload grayscale ima
 
 The goal of this project is to demonstrate how deep learning techniques can be used to restore color information in historical photographs or grayscale images.
 
-#Technologies Used
+# Technologies Used
 Programming Language
 
 Python
 
-#Libraries and Frameworks
+# Libraries and Frameworks
 
 OpenCV – Used for image processing and deep learning model inference
 
@@ -24,13 +24,13 @@ Streamlit – Used to create the web interface
 
 Pillow – Used for image handling and conversion
 
-#Model Used
+# Model Used
 
 The project uses the pretrained Image Colorization model developed by Richard Zhang et al.
 
 The model is trained to predict the ab color channels in the LAB color space from the L (lightness) channel of grayscale images.
 
-#Model files used in this project:
+# Model files used in this project:
 
 colorization_deploy_v2.prototxt
 colorization_release_v2.caffemodel
@@ -38,7 +38,7 @@ pts_in_hull.npy
 
 These files contain the network architecture and pretrained weights.
 
-#How the System Works
+# How the System Works
 
 The image colorization process follows these steps:
 
@@ -75,7 +75,7 @@ The predicted a and b channels are combined with the original L channel.
 The LAB image is converted back to RGB format to produce the final colorized image.
 
 
-#Project Structure
+# Project Structure
 Image_Colorization_App
 │
 ├── app.py
@@ -91,7 +91,7 @@ Image_Colorization_App
 ├── .gitattributes
 └── README.md
 
-#Applications
+# Applications
 
 This technology can be used for:
 
@@ -103,7 +103,7 @@ Image enhancement in computer vision
 
 AI-based image editing tools
 
-#References
+# References
 
 Richard Zhang, Phillip Isola, Alexei A. Efros
 “Colorful Image Colorization”
