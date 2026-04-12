@@ -40,3 +40,15 @@ if uploaded is not None:
         with col2:
             st.subheader("Colorized Image")
             st.image(result, use_column_width=True)
+
+            result_pil = Image.fromarray(result)
+            buf = io.BytesIO()
+            result_pil.save(buf, format="PNG")
+            byte_im = buf.getvalue()
+            
+            st.download_button(
+                label="Download Colorized Image",
+                data=byte_im,
+                file_name="colorized_image.png",
+                mime="image/png"
+            )
