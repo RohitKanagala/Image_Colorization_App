@@ -2,6 +2,7 @@ import streamlit as st
 import cv2
 import numpy as np
 from PIL import Image
+import io
 from colorize import colorize
 
 st.set_page_config(page_title="AI Image Colorization", layout="centered")
@@ -9,7 +10,6 @@ st.set_page_config(page_title="AI Image Colorization", layout="centered")
 st.title("Black & White Image Colorization")
 st.write("Drag & Drop or Browse a Black & White Image to Colorize")
 
-# File uploader (supports drag & drop automatically)
 uploaded = st.file_uploader(
     "Upload Image",
     type=["jpg", "png", "jpeg"],
@@ -24,7 +24,7 @@ if uploaded is not None:
 
     with col1:
         st.subheader("Original Image")
-        st.image(image, use_column_width=True)
+        st.image(image, width="stretch")
 
     image_np = np.array(image)
 
@@ -39,13 +39,13 @@ if uploaded is not None:
 
         with col2:
             st.subheader("Colorized Image")
-            st.image(result, use_column_width=True)
+            st.image(result, width="stretch")
 
             result_pil = Image.fromarray(result)
             buf = io.BytesIO()
             result_pil.save(buf, format="PNG")
             byte_im = buf.getvalue()
-            
+
             st.download_button(
                 label="Download Colorized Image",
                 data=byte_im,
