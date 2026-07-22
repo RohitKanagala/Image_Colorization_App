@@ -3,7 +3,8 @@ import cv2
 import numpy as np
 from PIL import Image
 from io import BytesIO
-
+st.write("OpenCV Version:", cv2.__version__)
+st.write("Has readNetFromCaffe:", hasattr(cv2.dnn, "readNetFromCaffe"))
 from colorize import colorize
 
 st.set_page_config(
